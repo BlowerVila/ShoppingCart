@@ -1,0 +1,407 @@
+@charset "UTF-8";
+* {
+  color: #343332;
+  transition: 0.3s;
+  position: relative;
+  font-family: "Noto Sans TC", "微軟正黑體";
+  letter-spacing: 1px;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #d3e0e0;
+}
+
+.container {
+  width: 989px;
+  height: 643px;
+  background-color: #f5faf8;
+  padding: 40px 56px;
+  border: 1px solid rgba(105, 108, 147, 0.5);
+  border-radius: 16px;
+  box-shadow: 0px 22px 30px rgba(105, 108, 147, 0.3);
+  position: flex;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  animation: start_jump 0.7s ease;
+}
+
+.top_nav, .bottom_row {
+  margin-bottom: 12px;
+}
+
+.top_nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+}
+.top_nav .title_and_icon {
+  background-image: url("https://imgur.com/tZdrSsU.png");
+  background-size: cover;
+  width: 230px;
+  height: 50px;
+}
+
+.money {
+  display: flex;
+  align-items: center;
+}
+
+.mon {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+  background-image: url("https://imgur.com/QFR5SRz.png");
+}
+
+.filter {
+  list-style: none;
+  margin: 0px 0px 16px 0px;
+  padding: 0px;
+  display: flex;
+  font-size: 13px;
+}
+.filter li {
+  position: inline-block;
+  padding: 6px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin-right: 6px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+.filter li:hover {
+  background-color: #343332;
+  color: #f5faf8;
+}
+.filter li:active {
+  transform: translate(1px, 1px);
+}
+
+.filter_choose {
+  background-color: #343332;
+  color: #f5faf8;
+  font-weight: 300;
+}
+
+.bottom_row {
+  display: flex;
+  height: 500px;
+}
+.bottom_row .left {
+  width: 64%;
+  padding: 8px;
+  background-color: rgba(160, 191, 191, 0.3);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  overflow: hidden;
+  overflow-Y: scroll;
+}
+.bottom_row .left::-webkit-scrollbar {
+  display: none;
+}
+.bottom_row .left .item {
+  display: inline-block;
+  padding: 10px;
+  margin: 6px;
+  border-radius: 8px;
+  background-color: #f5faf8;
+}
+.bottom_row .left .item .item_pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 2px;
+  background-color: #E4E4E4;
+  filter: contrast(1.2);
+}
+.bottom_row .left .item .item_pic .item_cate {
+  position: absolute;
+  left: 0px;
+  top: -12px;
+  padding: 2px 6px;
+  font-size: 13px;
+  font-weight: 350;
+  background-color: #f2a685;
+}
+.bottom_row .left .item .bottom_intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom_row .left .item .bottom_intro .intro {
+  margin-top: 12px;
+}
+.bottom_row .left .item .bottom_intro .intro .name, .bottom_row .left .item .bottom_intro .intro .money, .bottom_row .left .item .bottom_intro .intro .price {
+  padding: 0px;
+  margin: 0px;
+}
+.bottom_row .left .item .bottom_intro .intro .name {
+  font-size: 16px;
+  font-weight: 400;
+}
+.bottom_row .left .item .bottom_intro .intro .mon {
+  width: 14px;
+  height: 14px;
+  background-image: url("https://imgur.com/QFR5SRz.png");
+  background-size: cover;
+}
+.bottom_row .left .item .bottom_intro .intro .price {
+  font-size: 12px;
+  font-weight: 400;
+}
+.bottom_row .left .item .bottom_intro .add_btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 200px;
+  text-align: center;
+  line-height: -12px;
+  font-size: 22px;
+  font-weight: 500;
+  background-color: #696c93;
+  color: #f5faf8;
+}
+.bottom_row .right {
+  width: 38%;
+  padding: 24px;
+  border-radius: 12px;
+  margin-left: 4%;
+  box-shadow: 0px 2px 10px rgba(52, 51, 50, 0.25);
+}
+.bottom_row .right .li_title {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+.bottom_row .right .all_list {
+  display: flex;
+  flex-direction: column;
+  height: 312px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  overflow-Y: scroll;
+  scroll-behavior: smooth;
+}
+.bottom_row .right .all_list::-webkit-scrollbar {
+  display: none;
+}
+.bottom_row .right .all_list .list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 4px 0px;
+}
+.bottom_row .right .all_list .list .item_pic {
+  width: 80px;
+  height: 80px;
+  margin-right: 8px;
+  border-radius: 2px;
+  background-color: #E4E4E4;
+  filter: contrast(1.2);
+}
+.bottom_row .right .all_list .list .intro {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 8px;
+}
+.bottom_row .right .all_list .list .intro h4, .bottom_row .right .all_list .list .intro h5, .bottom_row .right .all_list .list .intro h3, .bottom_row .right .all_list .list .intro .mon {
+  margin: 0px;
+  padding: 0px;
+}
+.bottom_row .right .all_list .list .intro .item_cate {
+  width: 24px;
+  padding: 2px 4px;
+  margin-top: -8px;
+  font-size: 11px;
+  font-weight: 350;
+  background-color: #f2a685;
+}
+.bottom_row .right .all_list .list .intro .name {
+  font-weight: 400;
+}
+.bottom_row .right .all_list .list .intro .mon {
+  width: 18px;
+  height: 18px;
+  background-image: url("https://imgur.com/QFR5SRz.png");
+  background-size: cover;
+}
+.bottom_row .right .all_list .list .intro .price {
+  font-size: 14px;
+  margin-left: 2px;
+}
+.bottom_row .right .all_list .list .last {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bottom_row .right .all_list .list .last .count {
+  display: flex;
+  justify-content: space-between;
+}
+.bottom_row .right .all_list .list .last .count .add, .bottom_row .right .all_list .list .last .count .num, .bottom_row .right .all_list .list .last .count .subtract {
+  padding: 2px 4px;
+  border: 2px solid rgba(160, 191, 191, 0.3);
+}
+.bottom_row .right .all_list .list .last .count .add, .bottom_row .right .all_list .list .last .count .subtract {
+  cursor: pointer;
+  user-select: none;
+}
+.bottom_row .right .all_list .list .last .count .add:hover, .bottom_row .right .all_list .list .last .count .subtract:hover {
+  color: #696c93;
+  font-weight: 500;
+}
+.bottom_row .right .all_list .list .last .count .add:active, .bottom_row .right .all_list .list .last .count .subtract:active {
+  transform: translate(2px, 2px);
+}
+.bottom_row .right .all_list .list .last .count .num {
+  width: 24px;
+  text-align: center;
+  background-color: rgba(160, 191, 191, 0.3);
+}
+.bottom_row .right .all_list .list .last .remove_btn {
+  padding: 8px 14px;
+  border-radius: 200px;
+  font-size: 15px;
+  font-weight: 300;
+  background-color: #696c93;
+  color: #f5faf8;
+}
+.bottom_row .right .total {
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+.bottom_row .right .total .money {
+  height: 100%;
+}
+.bottom_row .right .total h4 {
+  font-weight: 400;
+}
+.bottom_row .right .buy_btn {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 300;
+  background-color: #696c93;
+  color: #f5faf8;
+}
+
+.blue_btn {
+  cursor: pointer;
+  user-select: none;
+  transition-duration: 0s;
+}
+.blue_btn:hover {
+  background-color: #f2a685;
+  transform: translate(1px, 1px);
+}
+.blue_btn:active {
+  transform: translate(2px, 2px);
+}
+
+.hole_text {
+  color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+}
+.hole_text:before {
+  content: "現在購物車是空的喔～";
+}
+
+.block {
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  background-color: #d3e0e0;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 12px rgba(105, 108, 147, 0.1) inset;
+  border-radius: 2px;
+}
+
+.block1 {
+  right: 0px;
+}
+
+.block2 {
+  right: 38px;
+}
+
+.block3 {
+  right: 0px;
+  top: 37px;
+}
+
+.out_block {
+  width: 180px;
+  height: 180px;
+  border-radius: 8px;
+  background-color: rgba(105, 108, 147, 0.1);
+  box-shadow: 0px 0px 12px rgba(105, 108, 147, 0.1);
+  left: 42px;
+  animation: block_jump 0.8s;
+}
+
+.block4 {
+  animation-delay: 0.2s;
+}
+
+.block5 {
+  bottom: 250px;
+  animation-delay: 0.2s;
+}
+
+.block6 {
+  left: 250px;
+  animation-delay: 0.3s;
+}
+
+@keyframes start_jump {
+  0% {
+    transform: scale(0.2) translateY(-50%);
+    top: 50%;
+  }
+  60% {
+    transform: scale(1.2) translateY(-50%);
+    top: 50%;
+  }
+  85% {
+    transform: scale(0.8) translateY(-50%);
+    top: 50%;
+  }
+  100% {
+    transform: scale(1) translateY(-50%);
+    top: 50%;
+  }
+}
+@keyframes block_jump {
+  0% {
+    transform: scale(0.15);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  85% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,404 @@
+$blue_color: rgb(105,108,147) //#0787AF
+$light_blue_color: rgb(160,191,191,0.3) //#DDE1E1
+$orange_color: #f2a685 //#EAA95C
+$black_color: #343332
+$grey_color: rgba(#000,0.4)
+$white_color: #f5faf8 //#ECECEC
+
+$bgcolor: #d3e0e0 //#1E1E1E
+$dark_bgcolor: #222 //還沒使用
+$pic_grey: #E4E4E4
+
+$mon_url: url("https://imgur.com/QFR5SRz.png")
+$break_width: 824px
+
+*
+  // background-color: #888
+  color: $black_color
+  transition: 0.3s
+  position: relative
+
+  font-family: "Noto Sans TC","微軟正黑體"
+  letter-spacing: 1px
+  // border: 1px solid
+  
+html,body
+  margin: 0px
+  padding: 0px
+  width: 100%
+  height: 100%
+  background-color: $bgcolor
+
+.container
+  width: 989px
+  height: 643px
+  background-color: $white_color
+  padding: 40px 56px
+  border: 1px solid rgba($blue_color,0.5) 
+  border-radius: 16px
+  box-shadow: 0px 22px 30px rgba($blue_color,0.3)
+  
+  position: flex
+  margin: auto
+  top: 50%
+  transform: translateY(-50%)
+  
+  display: flex
+  flex-direction: column
+  
+  z-index: 1
+  animation: start_jump 0.7s ease
+  
+.top_nav,.bottom_row
+  margin-bottom: 12px
+  
+.top_nav
+  display: flex
+  justify-content: space-between
+  width: 100%
+  height: 60px
+  
+  .title_and_icon
+    background-image: url("https://imgur.com/tZdrSsU.png")
+    background-size: cover
+    
+    //width: 271px height: auto
+    width: 230px
+    height: 50px
+    
+    
+//道具也需要顯示錢道具
+.money
+  display: flex
+  align-items: center
+.mon
+  width: 24px
+  height: 24px
+  margin-right: 4px
+  background-image: $mon_url
+      
+.filter
+  list-style: none
+  margin: 0px 0px 16px 0px
+  padding: 0px
+  display: flex
+  
+  font-size: 13px
+  li
+    position: inline-block
+    padding: 6px 10px
+    border: 1px solid rgba($grey_color,0.1)
+    border-radius: 2px
+    margin-right: 6px
+    
+    transition-duration: 0.2s
+    cursor: pointer
+    &:hover
+      background-color: $black_color
+      color: $white_color
+    &:active
+      transform: translate(1px,1px)
+
+//JS addClass使用
+.filter_choose
+  background-color: $black_color
+  color: $white_color
+  font-weight: 300
+  
+.bottom_row
+  display: flex
+  height: 500px
+  .left
+    width: 64%
+    padding: 8px
+    background-color: $light_blue_color
+    // border: 0.2px solid rgba($blue_color,0.5) 
+    
+    
+    //item重要排列
+    display: flex
+    // justify-content: space-between 原本使用這個，後來改成靠初始對齊＋gap
+    justify-content: flex-start
+    align-items: flex-start
+    gap: 4px
+    flex-wrap: wrap
+    
+    border-radius: 12px
+    
+    overflow: hidden
+    overflow-Y: scroll
+    &::-webkit-scrollbar 
+      display: none
+    
+    .item
+      display: inline-block
+      padding: 10px
+      margin: 6px
+      // border: 0.5px solid 
+      border-radius: 8px
+      background-color: $white_color
+      .item_pic
+        width: 150px
+        height: 150px
+        border-radius: 2px
+        background-color: $pic_grey
+        
+        filter: contrast(1.2)
+        
+        .item_cate
+          position: absolute
+          left: 0px
+          top: -12px
+          padding: 2px 6px
+          font-size: 13px
+          font-weight: 350
+          background-color: $orange_color
+          
+      .bottom_intro
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .intro
+          margin-top: 12px
+          .name,.money,.price
+            padding: 0px
+            margin: 0px
+          .name
+            font-size: 16px
+            font-weight: 400
+          .mon
+            width: 14px
+            height: 14px
+            background-image: $mon_url
+            background-size: cover
+          .price
+            font-size: 12px
+            font-weight: 400
+          
+        .add_btn
+          width: 32px
+          height: 32px
+          border-radius: 200px
+          text-align: center
+          line-height: -12px
+          font-size: 22px
+          font-weight: 500
+          
+          background-color: $blue_color
+          color: $white_color
+        
+  .right
+    width: 38%
+    padding: 24px
+    border-radius: 12px
+    margin-left: 4%
+    box-shadow: 0px 2px 10px rgba($black_color,0.25)
+    
+    .li_title
+      margin-bottom: 12px 
+      font-size: 20px
+    .all_list
+      display: flex
+      flex-direction: column
+      // justify-content: space-between
+      height: 312px
+      
+      margin-bottom:20px 
+      overflow: hidden
+      overflow-Y: scroll
+      
+      scroll-behavior: smooth
+      
+      //移除滑桿
+      &::-webkit-scrollbar
+        display: none
+      
+      
+      .list
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        margin-bottom: 12px
+        padding: 4px 0px
+        
+        .item_pic
+          width: 80px
+          height: 80px
+          margin-right: 8px 
+          border-radius: 2px
+          background-color: $pic_grey
+          
+          filter: contrast(1.2)
+        .intro
+          // min-width: 143px
+          //好用的flex比例分配
+          flex-grow: 2
+          display: flex
+          flex-direction: column
+          justify-content: space-between
+          margin-right: 8px 
+          h4,h5,h3,.mon
+            margin: 0px
+            padding: 0px
+          .item_cate
+            width: 24px
+            padding: 2px 4px
+            margin-top: -8px 
+            font-size: 11px
+            font-weight: 350
+            background-color: $orange_color
+          .name
+            font-weight: 400
+          .mon
+            width: 18px
+            height: 18px
+            background-image: $mon_url
+            background-size: cover
+          .price
+            font-size: 14px
+            margin-left: 2px
+            
+        .last
+          height: 80px
+          display: flex
+          flex-direction: column
+          justify-content: space-between
+          // align-self: flex-end
+          .count
+            display: flex
+            justify-content: space-between
+            .add,.num,.subtract
+              padding: 2px 4px
+              border: 2px solid $light_blue_color
+            .add,.subtract
+              cursor: pointer
+              user-select: none 
+              &:hover
+                color: $blue-color
+                font-weight: 500
+                // font-size: 12px
+                // padding: 2px 6px
+              &:active
+                transform: translate(2px,2px)
+              
+            .num
+              width: 24px
+              text-align: center
+              background-color: $light_blue_color
+              
+          .remove_btn
+            padding: 8px 14px
+            border-radius: 200px
+            font-size: 15px
+            font-weight: 300
+            
+            background-color: $blue_color
+            color: $white_color
+              
+    .total
+      height: 24px
+      display: flex
+      justify-content: space-between
+      align-items: center
+      
+      margin-top:8px 
+      .money
+        height: 100%
+      h4
+        font-weight: 400
+    .buy_btn
+      margin-top:12px
+      padding: 8px 14px
+      border-radius: 16px
+      text-align: center
+      font-weight: 300
+      
+      background-color: $blue_color
+      color: $white_color
+      
+      
+//所有按鈕的hover
+.blue_btn
+  cursor: pointer
+  user-select: none 
+  transition-duration: 0s
+  
+  &:hover
+    background-color: $orange_color
+    transform: translate(1px,1px)
+    // opacity: 0.5
+  &:active
+    transform: translate(2px,2px)
+  
+//空購物車時顯示字樣
+.hole_text
+  color: $grey_color
+  align-items: center
+  justify-content: center
+  &:before
+    content:"現在購物車是空的喔～"
+  
+  
+.block
+  width: 30px
+  height: 30px
+  display: block
+  position: absolute
+  background-color: $bgcolor
+  box-sizing: border-box
+  box-shadow: 0px 0px 12px rgba($blue_color,0.1) inset
+  border-radius: 2px
+.block1
+  right: 0px
+.block2
+  right: 38px
+.block3
+  right: 0px
+  top: 37px
+  
+.out_block
+  width: 180px
+  height: 180px
+  border-radius: 8px
+  background-color: rgba($blue_color,0.1)
+  box-shadow: 0px 0px 12px rgba($blue_color,0.1) 
+  left: 42px
+  
+  animation: block_jump 0.8s 
+  
+.block4
+  animation-delay: 0.2s
+.block5
+  bottom: 250px
+  animation-delay: 0.2s
+.block6
+  left: 250px
+  animation-delay: 0.3s
+  
+@keyframes start_jump
+  0%
+    transform: scale(0.2) translateY(-50%)
+    top: 50%
+  60%
+    transform: scale(1.2) translateY(-50%)
+    top: 50%
+  85%
+    transform: scale(0.8) translateY(-50%)
+    top: 50%
+  100%
+    transform: scale(1) translateY(-50%)
+    top: 50%
+  
+@keyframes block_jump
+  0%
+    transform: scale(0.15) 
+    
+  60%
+    transform: scale(1.1) 
+    
+  85%
+    transform: scale(0.8) 
+    
+  100%
+    transform: scale(1) 
+    
